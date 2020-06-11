@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: x-large;
+  }
+  .info {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .header {
+    font-size: large;
+  }
+  .date {
+    font-size: small;
+  }
+}
+
+.App {
+  height: 100vh;
+}
+.appcontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.App::after {
+  content: "";
+  background: url("./logo.jpg");
+  opacity: 0.05;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+.info {
+  width: 60%;
+  text-align: center;
+}
+.content {
+  background: rgb(244, 244, 244);
+  width: 50vh;
+  border-radius: 3px;
+  margin: 0.5em;
+}
+.containerform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputfield {
+  width: 70%;
+  border-radius: 3px;
+  margin: 0.5em;
+  padding: 0.5em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: rgba(0, 0, 0, 0.2);
+  outline: none;
+
+  font-size: medium;
+}
+.inputfield:focus {
+  background: rgba(0, 0, 0, 0.1);
+}
+.inputfield:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.formbutton {
+  margin: 0.5em;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  font-size: 16px;
+  background-color: rgba(0, 82, 153, 0.5);
+}
+.formbutton:hover {
+  background-color: rgba(0, 82, 153, 0.7);
+}
+.listelement {
+  font-size: large;
+}
+.listdefault {
+  padding: 1em;
+}
+.pform {
+  text-align: center;
+  padding: 1em;
+}
+.formlabel {
+  font-size: large;
+}
+.formselect {
+  cursor: pointer;
+  padding: 0.5em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 3px;
+  border-color: rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.formdropdown {
+  padding: 0.5em;
+  display: flex;
+  border: none;
+}
+.formselectoption {
+  font-size: large;
+}
