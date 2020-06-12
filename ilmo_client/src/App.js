@@ -8,16 +8,19 @@ function App() {
     <div className="App">
       <div className="appcontent">
         <h1 className="header">Tikkurilan uppopalloharjoitukset</h1>
+        <div className="infoDates">
+          Harjoitukset joka maanantai ja torstai, lukuunottamatta juhannusta
+          edeltävää torstaita 18.6. sekä heinäkuun kahta ensimmäistä viikkoa
+          29.6.-12.7.
+        </div>
         <div className="info">
           Peliaika 20:30-21:30. Klo 20 mennessä pitää ostaa lippu kassalta.
           Kertalippu 5€ (opiskelijat/eläkeläiset 2,60€). <br />
           Läntinen Valkoisenlähteentie 50, 01300 Vantaa
         </div>
 
-        <h3 className="date">Torstai 11.6.</h3>
         <div className="content">
           <ParticipantList />
-          <ParticipantForm />
         </div>
       </div>
     </div>

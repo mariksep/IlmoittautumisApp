@@ -1,22 +1,6 @@
 * {
   box-sizing: border-box;
 }
-@media only screen and (max-width: 600px) {
-  .header {
-    font-size: x-large;
-  }
-  .info {
-    font-size: small;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .header {
-    font-size: large;
-  }
-  .date {
-    font-size: small;
-  }
-}
 
 .App {
   height: 100vh;
@@ -42,6 +26,14 @@
   background-size: cover;
   z-index: -1;
 }
+.infoDates {
+  display: flex;
+  font-size: x-large;
+  font-weight: 400;
+  width: 60%;
+  text-align: center;
+  padding: 0.5em;
+}
 .info {
   width: 60%;
   text-align: center;
@@ -54,28 +46,37 @@
 }
 .containerform {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.inputfield {
-  width: 70%;
+.MuiButton-root {
+  margin: 0.5em !important;
+  width: 90%;
+}
+.MuiButton-label {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+.closeButton {
   border-radius: 3px;
-  margin: 0.5em;
-  padding: 0.5em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-color: rgba(0, 0, 0, 0.2);
-  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 1vh;
+  width: 10%;
+  margin: 1vw;
+  background-color: rgba(0, 82, 153, 0.5);
+}
+.closeButton:hover {
+  background-color: rgba(0, 82, 153, 0.7);
+}
 
-  font-size: medium;
+.buttonGreen {
+  background-color: rgba(106, 213, 7, 0.6) !important;
 }
-.inputfield:focus {
-  background: rgba(0, 0, 0, 0.1);
-}
-.inputfield:hover {
-  background: rgba(0, 0, 0, 0.1);
+.buttonGreen:hover {
+  background-color: rgba(92, 185, 6, 0.6) !important;
 }
 .formbutton {
   margin: 0.5em;
@@ -92,19 +93,28 @@
 .formbutton:hover {
   background-color: rgba(0, 82, 153, 0.7);
 }
-.listelement {
-  font-size: large;
-}
-.listdefault {
+
+.default {
+  display: flex;
+  justify-content: center;
   padding: 1em;
 }
-.pform {
-  text-align: center;
-  padding: 1em;
+.listcontent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
 .formlabel {
   font-size: large;
 }
+.ol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .formselect {
   cursor: pointer;
   padding: 0.5em;
@@ -116,11 +126,58 @@
   outline: none;
 }
 
-.formdropdown {
-  padding: 0.5em;
+.modal {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MuiPaper-root {
+  width: 50% !important;
+}
+.inputField {
+  width: 50% !important;
+}
+.formdropdown {
+  width: 50%;
+  padding: 0.5em;
   border: none;
 }
 .formselectoption {
   font-size: large;
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: x-large;
+  }
+  .info {
+    font-size: small;
+  }
+  .infoDates {
+    font-size: small !important;
+    font-weight: 600 !important;
+  }
+  .content {
+    width: 70% !important;
+  }
+  .MuiPaper-root {
+    width: 90% !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .modalDate {
+    text-align: center;
+  }
+  .header {
+    font-size: x-large;
+    text-align: center;
+  }
+
+  .date {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .MuiPaper-root {
+    width: 100% !important;
+  }
 }

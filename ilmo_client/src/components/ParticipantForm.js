@@ -1,15 +1,20 @@
 import React from "react";
 import usePostParticipant from "../hooks/PostParticipantHooks";
-import { PostParticipant, usePartList } from "../hooks/ApiHooks";
+import { PostParticipant, useDateList } from "../hooks/ApiHooks";
 import PropTypes from "prop-types";
+import TextField from "@material-ui/core/TextField";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import "../App.css";
 
-const ParticipantForm = () => {
-  let partArray = usePartList();
+const ParticipantForm = ({ date }) => {
+  let partArray = useDateList();
   const doPost = async () => {
     try {
-      const message = await PostParticipant(inputs);
+      const message = await PostParticipant(inputs, date.id);
+      console.log(message);
       alert(`Sinut ${inputs.name} on lisätty listaan`);
       window.location.reload();
     } catch (e) {
@@ -28,16 +33,16 @@ const ParticipantForm = () => {
     <div>
       {partArray.length < 26 ? (
         <form className="containerform" onSubmit={handlesubmit}>
-          <input
+          <TextField
+            className="inputField"
             required
             minLength="2"
-            className="inputfield"
             name="name"
             type="text"
             value={inputs.name}
-            placeholder="Kirjoita nimesi*"
+            label="Kirjoita nimesi"
             onChange={handleInputChange}
-          ></input>
+          ></TextField>
           {/*<input
             required
             value={inputs.club}
@@ -49,7 +54,7 @@ const ParticipantForm = () => {
           />*/}
           <div className="formdropdown">
             <label className="formlabel" htmlFor="club">
-              Valitse seura: *{" "}
+              Valitse seura: *
             </label>
             <select
               className="formselect"
@@ -59,6 +64,7 @@ const ParticipantForm = () => {
               name="club"
             >
               <option value="" defaultValue disabled hidden></option>
+
               <option className="formselectoption" value="Hydromania">
                 Hydromania
               </option>

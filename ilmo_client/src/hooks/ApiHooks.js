@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 const baseUrl =
   "https://us-central1-ilmoittautuminen-b633a.cloudfunctions.net/api";
 
-const usePartList = () => {
+const useDateList = () => {
   const [data, setData] = useState([]);
   const fetchUrl = async () => {
-    const response = await fetch(baseUrl + "/participants");
+    const response = await fetch(baseUrl + "/dates");
     const json = await response.json();
 
     const items = await Promise.all(
@@ -20,7 +20,8 @@ const usePartList = () => {
   }, []);
   return data;
 };
-const PostParticipant = async (inputs) => {
+
+const PostParticipant = async (inputs, dateId) => {
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -29,7 +30,7 @@ const PostParticipant = async (inputs) => {
     body: JSON.stringify(inputs),
   };
   try {
-    const resp = await fetch(baseUrl + `/participant`, fetchOptions);
+    const resp = await fetch(baseUrl + `/date/${dateId}/add`, fetchOptions);
     const json = await resp.json();
 
     return json;
@@ -38,4 +39,18 @@ const PostParticipant = async (inputs) => {
   }
 };
 
-export { usePartList, PostParticipant };
+const useGetParticipants = (dateId) => {
+  const [data, setData] = useState([]);
+
+  const fetchUrl = async () => {
+    const resp = await fetch(baseUrl + `/date/${dateId}`);
+    const json = await resp.json();
+    setData(json);
+  };
+  useEffect(() => {
+    fetchUrl();
+  }, []);
+  return data;
+};
+
+export { useDateList, PostParticipant, useGetParticipants };

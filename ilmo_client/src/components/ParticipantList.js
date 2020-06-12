@@ -1,24 +1,31 @@
 import React from "react";
-import { usePartList } from "../hooks/ApiHooks";
+import { useDateList } from "../hooks/ApiHooks";
 import "../App.css";
+import DateList from "./DateList";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const ParticipantList = () => {
-  let partArray = usePartList();
+  let dateArray = useDateList();
   return (
     <div>
-      {partArray.length > 0 ? (
-        <ol className="listcontent">
-          {partArray.map((part) => {
-            return (
-              <li className="listelement" key={part.id}>
-                {part.name} {part.club}
-              </li>
-            );
-          })}
-        </ol>
+      {dateArray.length > 0 ? (
+        <div className="listcontent">
+          <>
+            {dateArray
+              .sort((a, b) => a.time._seconds - b.time._seconds)
+              .map((item, i) => (
+                <DateList key={i} date={item}></DateList>
+              ))}
+          </>
+        </div>
       ) : (
-        <div className="listdefault">
-          Ilmoittaudu kirjoitamalla nimesi ja seurasi
+        <div className="default">
+          <CircularProgress
+            variant="indeterminate"
+            disableShrink
+            size={40}
+            thickness={4}
+          />
         </div>
       )}
     </div>
