@@ -23,10 +23,12 @@ Sivusto on houstattuna Firebase hosting palvelun kautta.
 <li>Firebase hosting ja database</li>
 </ul>
 </div>
+<h2>Ensimmäinen versio</h2>
+<img height= "600" src="https://github.com/mariksep/IlmoittautumisApp/blob/master/vanha.jpg"/>
+
 
 <h2>Etusivu</h2>
 <img height= "600" src="https://github.com/mariksep/IlmoittautumisApp/blob/master/etusivu.JPG"/>
-
 <h2>Mennyt harjoitus</h2>
 <img height= "600" src="https://github.com/mariksep/IlmoittautumisApp/blob/master/vanhaharjo.JPG"/>
 <h2>Tuleva harjoitus</h2>
