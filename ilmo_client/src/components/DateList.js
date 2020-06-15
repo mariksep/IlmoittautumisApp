@@ -14,7 +14,9 @@ const DateList = ({ date }) => {
     setOpen(false);
   };
   let curdate = new Date(null);
+  let opdate = new Date(null);
   curdate.setTime(date.time._seconds * 1000);
+  opdate.setTime(date.open._seconds);
 
   const DateNow = Date.now() / 1000;
   return (

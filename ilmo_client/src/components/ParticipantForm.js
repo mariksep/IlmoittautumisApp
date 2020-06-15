@@ -1,20 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import usePostParticipant from "../hooks/PostParticipantHooks";
 import { PostParticipant, useDateList } from "../hooks/ApiHooks";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import "../App.css";
 
 const ParticipantForm = ({ date }) => {
+  const [loading, setLoading] = useState(false);
+
   let partArray = useDateList();
   const doPost = async () => {
+    setLoading(true);
     try {
       const message = await PostParticipant(inputs, date.id);
       console.log(message);
+      setLoading(false);
       alert(`Sinut ${inputs.name} on lisätty listaan`);
       window.location.reload();
     } catch (e) {
@@ -88,6 +90,13 @@ const ParticipantForm = ({ date }) => {
               </option>
             </select>
           </div>
+          {loading && (
+            <>
+              <div>
+                <CircularProgress />
+              </div>
+            </>
+          )}
           <button className="formbutton" type="submit">
             Lisää
           </button>

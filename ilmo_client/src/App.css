@@ -146,6 +146,11 @@
   font-size: large;
 }
 @media only screen and (max-width: 600px) {
+  .olContent {
+    height: 40vh !important;
+    overflow-y: scroll !important;
+  }
+
   .header {
     font-size: x-large;
   }

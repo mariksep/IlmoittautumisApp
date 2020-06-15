@@ -17,15 +17,17 @@ const ModalContent = ({ date }) => {
         {content.participants !== undefined ? (
           <div className="ol">
             <h2 className="modalDate">{curdate.toLocaleString()}</h2>
-            <ol>
-              {content.participants.map((part, index) => {
-                return (
-                  <li key={index}>
-                    {part.name} {part.club}
-                  </li>
-                );
-              })}
-            </ol>
+            <div className="olContent">
+              <ol>
+                {content.participants.map((part, index) => {
+                  return (
+                    <li key={index}>
+                      {part.name} {part.club}
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
           </div>
         ) : (
           <div className="default">
